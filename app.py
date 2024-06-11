@@ -8,6 +8,7 @@ app.config.from_object('config')
 db.init_app(app)
 
 with app.app_context():
+    db.drop_all()
     db.create_all()
     initialize_db()
 
@@ -20,3 +21,8 @@ def smoothies():
     all_smoothies_list = Smoothies.query.all()
 
     return render_template('smoothies.html', smoothies_list = all_smoothies_list)
+
+
+if __name__ == '__main__':
+    app.run(debug=True, port=8080)
+
