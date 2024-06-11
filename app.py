@@ -18,8 +18,9 @@ def index():
 
 @app.route('/smoothies')
 def smoothies():
+    print('smoothies called')
     all_smoothies_list = Smoothies.query.all()
-
+    print(all_smoothies_list)
     return render_template('smoothies.html', smoothies_list = all_smoothies_list)
 
 
