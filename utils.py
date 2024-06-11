@@ -19,7 +19,7 @@ def delete_all_benefits():
     db.session.commit()
     
 def insert_all_smoothies(csv_file):
-    with open(csv_file, 'r') as f:
+    with open(csv_file, 'r' , encoding='utf-8', errors='replace') as f:
         
         reader = csv.DictReader(f)
         
