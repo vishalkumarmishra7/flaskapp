@@ -1,0 +1,31 @@
+
+<section id="smoothie" class="smoothies" aria-labelledby="smoothie-heading">
+    <div class="container">
+
+        <div class="dual-header">
+            <h2 id="smoothie-heading">Smoothies</h2>
+            <div class="separator-wrap">
+                <span class="separator separator-one"></span>
+                <span class="separator separator-two"></span>
+            </div>		 
+        </div>
+
+        <div class="smoothies-grid">
+            {% for sm in smoothies_list %}
+                <div class="smoothie">
+                    <img src="static\img\smoothies\{{ sm.image }}" alt="Image for {{ sm.recipename }}" class="content-img" />
+                    <div class="content">
+                        <div class="smoothie-title">
+                            <h3 >{{ sm.recipename }}</h3>
+                        </div>
+                        <div class="description">
+                            <p> {{ sm.description }} </p>
+                            <i class="fa-heart heart-size {{ 'fas heart-filled' if sm.recid in recid_list else 'far'}}" id="{{ sm.recid }}" title="Add to favorites" aria-hidden="true" aria-label="Add to favourites"></i>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
